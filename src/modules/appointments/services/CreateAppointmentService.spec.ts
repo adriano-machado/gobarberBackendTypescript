@@ -26,7 +26,7 @@ describe('CreateAppointment', () => {
       date,
       provider_id: '123123',
     });
-    expect(
+    await expect(
       createAppointmentService.execute({
         date,
         provider_id: '123123',
