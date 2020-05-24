@@ -2,7 +2,6 @@ import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 import IHashProvider from '@modules/users/providers/HashProvider/models/IHashProvider';
-import { isThursday } from 'date-fns';
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 
@@ -34,7 +33,7 @@ class UpdateProfile {
       throw new AppError('User does not exists');
     }
     const userWithUpdatedEmail = await this.usersRepository.findByEmail(email);
-    if (userWithUpdatedEmail && userWithUpdatedEmail.email !== user_id) {
+    if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user_id) {
       throw new AppError('Email already being used');
     }
     user.name = name;
