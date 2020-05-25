@@ -55,7 +55,6 @@ class ListProviderDayAvailabilityService {
         available: !hasAppointmentsInHour && isAfter(compareDate, currentDate),
       };
     });
-    console.log(availability);
     return availability;
   }
 }
