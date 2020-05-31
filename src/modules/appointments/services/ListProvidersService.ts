@@ -24,7 +24,6 @@ class ListProvidersService {
       users = await this.usersRepository.findAllProvider({
         except_user_id: user_id,
       });
-      console.log('Query no redis feita');
       await this.cacheProvider.save(`providers-list:${user_id}`, users);
     }
 
